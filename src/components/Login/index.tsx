@@ -10,7 +10,6 @@ const LoginPage = () => {
   const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const id = await getOrCreateUserByUserName(username)
-    // persist
     userContext.setUser(id, username)
     navigate("/translate")
   }

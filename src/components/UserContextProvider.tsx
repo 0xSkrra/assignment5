@@ -31,6 +31,8 @@ const UserContextProvider = ({ children }: ContextApiProps) => {
   }
 
   const isAuthenticated = (): boolean => {
+    //make sure user can't be authenticated if id field is missing
+    if(contextUser.isAuthenticated && isNaN(contextUser.id)) removeUser()
     return contextUser.isAuthenticated
   }
 
