@@ -2,8 +2,7 @@ import { useEffect, useState } from "react"
 import { UserContext } from "../UserContextProvider"
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
-import { getOrCreateUserByUserName, getTranslationsByUserId } from "../../common/util/API"
-import { render } from "react-dom"
+import { getTranslationsByUserId } from "../../common/util/API"
 
 
 
@@ -13,11 +12,11 @@ function Profile() {
   const [userTranslations, setUserTranslations] = useState<React.ReactNode | null>(<></>)  //? var user1 = getOrCreateUserByUserName(user.username)
   const navigate = useNavigate()
   
-  
+  //gets last ten translations in list and return it to list
   useEffect(() => {
     getTranslationsByUserId(user.id)
     .then(
-      result => setUserTranslations(result.map((x) => <li>{x}</li>))
+      result => setUserTranslations(result.slice(-10).map((x) => <li>{x}</li>))
     )
   }, [user.id])
   
@@ -29,28 +28,36 @@ function Profile() {
     navigate("/login")
     }
   
-  //Going to translate page
+  //function to translate page
   function handleToSign() {
   console.log("Going to translate page")
-  //navigating to login page
+  //navigating to translate page
   navigate("/translate")
   }
 
+  //function to clear translation history
+  function handleClear() {
+    console.log("Clearing user translation history")
+    //navigating to translate page
+    setUserTranslations([])
+
+    }
+  
   return (
+
     <div id= "user-component">
         <h2 id="Title">User Data:</h2>
-        {user.username ? <p>{user.username}</p> : <p>No user logged in</p>}
-        <button id = "logoutBut" onClick={handleLogout}>Sign out</button>
-        <button id = "toSignBut" onClick={handleToSign}>Translate page</button>
-        <p id = "translation-list">Translations:</p>
+        {user.username ? <h3>{user.username}</h3> : <p>No user logged in</p>}
+        <button id = "logoutBut" onClick={handleLogout}>Sign Out</button>
+        <button id = "toSignBut" onClick={handleToSign}>Translate Page</button>
+        <button id = "toClearHistory" onClick={handleClear}>Clear History</button>
+        <h3 id = "translation-list">Translations:</h3>
         <ul>
           {userTranslations}
         </ul>
         
     </div>
-)
-
-
+  )
 }
 
 
