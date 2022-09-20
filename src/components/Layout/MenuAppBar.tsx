@@ -10,6 +10,7 @@ export default function MenuAppBar() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const navigate = useNavigate()
   
+  // decide whether to display profile badge menu entry or not
   useEffect(() => {
     setAuth(user.isAuthenticated)
   }, [user])
@@ -17,11 +18,12 @@ export default function MenuAppBar() {
   const handleMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
-
+  // goto profilepage
   const handleProfileClick = () => {
     setAnchorEl(null);
     navigate("/profile")
   };
+  // logout
   const handleLogoutClick = () =>{
     setAnchorEl(null)
     userContext.removeUser()

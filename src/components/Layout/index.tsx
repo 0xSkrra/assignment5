@@ -9,17 +9,19 @@ interface baseLayoutProps {
 const BaseLayout = ({children}: baseLayoutProps) => {
   return (
     <div>
+      {/* include nav on all pages */}
       <MenuAppBar/>
+      {/* include children(routes) inside grid container*/}
       <Grid
-  container
-  spacing={0}
-  direction="column"
-  alignItems="center"
-  justifyContent="center"
-  style={{ minHeight: '90vh' }}
->
-   {children}  
-   </Grid>
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        style={{ minHeight: '90vh' }}
+        >
+        {children}  
+    </Grid>
    </div>
   )
 }

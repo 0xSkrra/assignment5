@@ -10,6 +10,7 @@ const Routing = () => {
   const authentication = userContext.isAuthenticated()
   return (
     <Routes>
+      {/* so few routes, easiest but mcgyver solution? */}
       <Route
         path="login"
         element={
