@@ -1,10 +1,12 @@
 import { UserObject } from "../../interface/userObject";
 import API from "./api";
 
+// get all func
 export const getAll = async (): Promise<UserObject[]> => {
     return (await API.get("/translations")).data;
 };
 
+// Get User or create user if it does not exist
 export const getOrCreateUserByUserName = async (
     username: string
 ): Promise<number> => {
@@ -20,6 +22,7 @@ export const getOrCreateUserByUserName = async (
     return userData.id;
 };
 
+// get translations done by user using the id of the user
 export const getTranslationsByUserId = async (
     id: number
 ): Promise<Array<string>> => {
@@ -27,6 +30,7 @@ export const getTranslationsByUserId = async (
     return result.translations
 };
 
+// add translation to user, fetches prev translations and concatenates
 export const addTranslationById = async (id: number, translation: string) => {
     const existingTranslations = await getTranslationsByUserId(id);
     const allTranslations = [...existingTranslations, translation];
@@ -36,3 +40,8 @@ export const addTranslationById = async (id: number, translation: string) => {
             .status === 200
     );
 };
+
+// delete all translations by the user
+export const deleteTranslationsById = async (id: number) => {
+    return (await API.patch(`/translations/${id}`, { translations: []})).status === 200
+}

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { getTranslationsByUserId } from "../../common/util/API"
 import { Box, Card } from "@mui/material"
 import { blueGrey } from "@mui/material/colors"
+import { deleteTranslationsById, getTranslationsByUserId } from "../../common/util/API"
 
 
 
@@ -40,9 +41,8 @@ function Profile() {
   //function to clear translation history
   function handleClear() {
     console.log("Clearing user translation history")
-    //navigating to translate page
     setUserTranslations([])
-
+    deleteTranslationsById(user.id)
     }
 
 
