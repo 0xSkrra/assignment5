@@ -1,3 +1,5 @@
+import { Grid, TextField } from "@mui/material"
+import Button from "@mui/material/Button"
 import { FormEvent, useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getOrCreateUserByUserName } from "../../common/util/API"
@@ -14,17 +16,23 @@ const LoginPage = () => {
     navigate("/translate")
   }
   return (
-    <form id= "login-component" onSubmit={handleLogin}>
-      <label htmlFor="usernameInput">Login with username</label>
-      <input
-        minLength={2}
+    <Grid item xs={3} alignItems="center"
+    justifyContent="center">
+    <form onSubmit={handleLogin}>
+    <Grid item>
+      <TextField
         onChange={(e) => setUsername(e.target.value)}
         value={username}
+        label="Enter username"
         id="usernameInput"
         type="text"
+        required
       />
-      <button type="submit">Login</button>
+      </Grid>
+      <Grid item alignItems="center"
+  justifyContent="center"><Button sx={{ mt: 1 }} variant="contained" type="submit">Login</Button></Grid>
     </form>
+    </Grid>
   )
 }
 

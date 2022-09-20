@@ -3,12 +3,15 @@ import { BrowserRouter } from "react-router-dom";
 import UserContextProvider from "./components/UserContextProvider";
 
 import Routing from "./Routing";
+import BaseLayout from "./components/BaseLayout";
 
 function App() {
   return (
     <UserContextProvider>
       <BrowserRouter>
-        <Routing />
+        <BaseLayout>
+          <Routing />
+        </BaseLayout>
       </BrowserRouter>
     </UserContextProvider>
   );
