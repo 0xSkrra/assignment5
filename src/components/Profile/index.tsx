@@ -3,6 +3,8 @@ import { UserContext } from "../UserContextProvider"
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { getTranslationsByUserId } from "../../common/util/API"
+import { Box, Card } from "@mui/material"
+import { blueGrey } from "@mui/material/colors"
 
 
 
@@ -42,21 +44,32 @@ function Profile() {
     setUserTranslations([])
 
     }
-  
-  return (
 
-    <div id= "user-component">
-        <h2 id="Title">User Data:</h2>
-        {user.username ? <h3>{user.username}</h3> : <p>No user logged in</p>}
-        <button id = "logoutBut" onClick={handleLogout}>Sign Out</button>
-        <button id = "toSignBut" onClick={handleToSign}>Translate Page</button>
-        <button id = "toClearHistory" onClick={handleClear}>Clear History</button>
-        <h3 id = "translation-list">Translations:</h3>
-        <ul>
-          {userTranslations}
-        </ul>
-        
-    </div>
+
+  //list of translations as card 
+  const transCard =   
+  <div>
+    <h3 id = "translation-list">Translations:</h3>
+    <ul>{userTranslations} </ul>
+    <button id = "toClearHistory" onClick={handleClear}>Clear History</button>
+  </div>
+
+  //user component with user translations as card 
+  const userCard =     
+  <div id= "user-component">
+  <h2 id="Title">User Data:</h2>
+  {user.username ? <h3>{user.username}</h3> : <p>No user logged in</p>}
+  <button id = "logoutBut" onClick={handleLogout}>Sign Out</button>
+  <button id = "toSignBut" onClick={handleToSign}>Translate Page</button>
+  <Box id= "translationCard" sx={{ backgroundcolour: blueGrey, display: 'inline-block', mx: '5px', transform: 'scale(1)' }}>
+    <Card variant="outlined" >{transCard}</Card>
+    </Box>
+  </div>
+
+  return (
+    <Box sx={{ minWidth: 300 }}>
+    <Card variant="outlined" >{userCard}</Card>
+    </Box>
   )
 }
 
