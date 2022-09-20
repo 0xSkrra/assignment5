@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { UserContext } from "../UserContextProvider"
 import { useContext } from "react"
-import { useNavigate } from "react-router-dom"
 import { Box, Button, Card } from "@mui/material"
 import { blueGrey } from "@mui/material/colors"
 import { deleteTranslationsById, getTranslationsByUserId } from "../../common/util/API"
@@ -12,7 +11,6 @@ function Profile() {
   const userContext = useContext(UserContext)
   const user = userContext.getUser()
   const [userTranslations, setUserTranslations] = useState<React.ReactNode | null>(<></>)  //? var user1 = getOrCreateUserByUserName(user.username)
-  const navigate = useNavigate()
   
   //gets last ten translations in list and return it to list
   useEffect(() => {
@@ -43,7 +41,7 @@ function Profile() {
   <div id= "user-component">
   <h2 id="Title">User:</h2>
   {user.username ? <h3>{user.username}</h3> : <p>No user logged in</p>}
-  <Box id= "translationCard" sx={{ backgroundcolour: blueGrey, display: 'inline-block', mx: '5px', transform: 'scale(1)' }}>
+  <Box id= "translationCard" sx={{ backgroundColor: blueGrey, display: 'inline-block', mx: '5px', transform: 'scale(1)' }}>
     <Card variant="outlined" >{transCard}</Card>
     </Box>
   </div>

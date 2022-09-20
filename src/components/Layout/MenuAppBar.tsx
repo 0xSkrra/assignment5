@@ -1,6 +1,6 @@
 import { Box, AppBar, Toolbar, IconButton, Typography, Menu, MenuItem } from "@mui/material";
 import { useState, MouseEvent, useContext, useEffect } from "react";
-import { UserContext } from "./UserContextProvider";
+import { UserContext } from "../UserContextProvider";
 import { useNavigate } from "react-router-dom"
 
 export default function MenuAppBar() {
