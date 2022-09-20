@@ -12,6 +12,8 @@ Build an online sign language translator as a Single Page Application using the 
 ### Robin Hextall-Schjelderup | Bergen, Norway
 ### Espen Sjo | Bergen, Norway
 
+# component tree 
+[link to component tree](https://gitlab.com/esp0x1/assignment5/-/blob/main/docs/component_tree.pdf)
 
 # Project Structure
 ```
