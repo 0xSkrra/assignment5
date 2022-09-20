@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { UserContext } from "../UserContextProvider"
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
-import { getTranslationsByUserId } from "../../common/util/API"
+import { deleteTranslationsById, getTranslationsByUserId } from "../../common/util/API"
 
 
 
@@ -38,9 +38,8 @@ function Profile() {
   //function to clear translation history
   function handleClear() {
     console.log("Clearing user translation history")
-    //navigating to translate page
     setUserTranslations([])
-
+    deleteTranslationsById(user.id)
     }
   
   return (
