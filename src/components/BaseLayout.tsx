@@ -16,7 +16,7 @@ const BaseLayout = ({children}: baseLayoutProps) => {
   direction="column"
   alignItems="center"
   justifyContent="center"
-  style={{ minHeight: '100vh' }}
+  style={{ minHeight: '90vh' }}
 >
    {children}  
    </Grid>
