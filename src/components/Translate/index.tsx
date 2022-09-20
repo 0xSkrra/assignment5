@@ -22,16 +22,13 @@ const Translate = () => {
     setContent(newContent)
   }
   return (
-    <>
+    <div id = "translate-component">
       <form onSubmit={onSubmit}>
         <input onChange={(e) => setPhrase(e.target.value)} type="text" />
         <button type="submit">Submit</button>
       </form>
       <div>{content}</div>
-      <div>
-        <p>Last Translations</p>
-      </div>
-    </>
+    </div>
   )
 }
 

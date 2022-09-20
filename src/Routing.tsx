@@ -21,7 +21,7 @@ const Routing = () => {
       <Route
         path="*"
         element={
-          <Navigate replace to={authentication ? "/profile" : "/login"} />
+          <Navigate replace to={authentication ? "/translate" : "/login"} />
         }
       />
     </Routes>

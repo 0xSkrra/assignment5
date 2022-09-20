@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+#login-component{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15%;
+  width: 16em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color:#61dafb;
+  padding: auto;
+}
+
+
+#user-component {
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em;
+}
+
+#translate-component {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30%;
+  width: 8em;
+}

@@ -9,13 +9,13 @@ const LoginPage = () => {
   const userContext = useContext(UserContext)
   const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const id = await getOrCreateUserByUserName(username)
+    let id = await getOrCreateUserByUserName(username)
     userContext.setUser(id, username)
     navigate("/translate")
   }
   return (
-    <form onSubmit={handleLogin}>
-      <label htmlFor="usernameInput">Login</label>
+    <form id= "login-component" onSubmit={handleLogin}>
+      <label htmlFor="usernameInput">Login with username</label>
       <input
         minLength={2}
         onChange={(e) => setUsername(e.target.value)}
