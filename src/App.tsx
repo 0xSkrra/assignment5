@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import UserContextProvider from "./components/UserContextProvider";
 import Routing from "./Routing";
-import BaseLayout from "./components/baseLayout";
+import BaseLayout from "./components/BaseLayout";
 
 
 function App() {
