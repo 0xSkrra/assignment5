@@ -46,7 +46,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color:#61dafb;
   padding: auto;
 }
 
@@ -54,12 +53,24 @@
 #user-component {
   margin-left: auto;
   margin-right: auto;
-  width: 8em;
+  margin-top: 5%;
+  width: 40em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: auto;
 }
 
 #translate-component {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30%;
-  width: 8em;
+  margin-top: 5%;
+  width: 16em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: auto;
 }
+
