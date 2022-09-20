@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom"
 import LoginPage from "./components/Login"
 import Profile from "./components/Profile"
