@@ -19,10 +19,17 @@ export default function MenuAppBar() {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const handleProfileClick = () => {
     setAnchorEl(null);
+    navigate("/profile")
   };
-
+  const handleLogoutClick = () =>{
+    setAnchorEl(null)
+    userContext.removeUser()
+  }
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -64,8 +71,8 @@ export default function MenuAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleProfileClick}>Profile</MenuItem>
+                <MenuItem onClick={handleLogoutClick}>Logout</MenuItem>
               </Menu>
             </div>
           )}
